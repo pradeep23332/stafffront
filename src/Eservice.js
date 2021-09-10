@@ -2,13 +2,13 @@ import Dashboard from './Dashboard';
 import { Table } from 'react-bootstrap'
 import {useHistory} from 'react-router-dom'
 
-function Attendant() {
+function Eservice() {
     const history= useHistory();
 
     let role = localStorage.getItem('role');
     let user = localStorage.getItem('user-info');
     user = JSON.parse(user);
-    if(role !== 'attendant') {
+    if(role !== 'eservice') {
         history.push('/');
     }
     async function deleted() {
@@ -29,10 +29,11 @@ function Attendant() {
         history.push('/register')
 
     }
+
     return (
         <div>
             <Dashboard />
-            <h1> Attendant profile</h1>
+            <h1> Emergency service provider</h1>
             <br/>
             <br/><br/><br/>
             <Table striped bordered hover variant="light">
@@ -46,18 +47,19 @@ function Attendant() {
                 </thead>
                 <tbody>
                     <tr>
+                        
                         <td>{user.staff.name}</td>
                         <td>{user.staff.phone}</td>
                         <td>{user.staff.email}</td>
 
-                        
                     </tr>
 
                 </tbody>
             </Table>
             <a href="/update" className="btn btn-primary">Update</a>
             <button onClick={deleted} className="btn btn-primary" >Delete</button>
+           
         </div>
     )
 }
-export default Attendant
+export default Eservice

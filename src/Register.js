@@ -6,10 +6,31 @@ function Register()
 
 {
     useEffect(()=>{
-        if(localStorage.getItem('user-info'))
-        {
-            history.push("/add")
-        }
+        let role = localStorage.getItem('role');
+
+            if(localStorage.getItem('user-info'))
+            
+            {
+                if(role === 'nurse') {
+                    history.push('/nurse')
+                } else if (role === 'metron') {
+                    history.push('/metron')
+                } else if (role === 'attendant') {
+                    history.push('/attendant')
+                } else if (role === 'pharmacist') {
+                    history.push('/pharmacist')
+                } else if (role === 'accountant') {
+                    history.push('/accountant')
+                } else if (role === 'receptionist') {
+                    history.push('/receptionist')
+                } else if (role === 'labtechnician') {
+                        history.push('/labtechnician')
+                }else if (role === 'radiologist') {
+                    history.push('/radiologist')
+                }else if (role === 'eservice') {
+                    history.push('/eservice')
+                }
+            }
 
     },[])
     const [name,setName]=useState("")
@@ -22,7 +43,7 @@ function Register()
     async function signUp()
     {
         let item={name,phone,stafftype,email,password}
-        console.warn(item)
+        console.warn(item)    
 
         let result= await fetch("http://localhost:8000/api/register",{
             method:'POST',
@@ -34,9 +55,10 @@ function Register()
             }
         })
         result =await result.json()
-        localStorage.setItem("user-info",JSON.stringify(result))
-        history.push("/add")
-    }
+        // localStorage.setItem("user-info",JSON.stringify(result))
+            history.push('/login')
+            
+        }   
     return(
         <>
         <Dashboard/>
