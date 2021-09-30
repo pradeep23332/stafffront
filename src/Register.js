@@ -2,6 +2,7 @@ import React ,{useState,useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import Dashboard from './Dashboard';
 
+
 function Register()
 
 {
@@ -66,15 +67,15 @@ function Register()
         <div className="col-sm-6 offset-sm-3">
             <h1> Staff Register Page</h1>
             <br/>
-            <input type="text"value={name} onChange={(e)=>setName(e.target.value)} className="form-control"placeholder="Name" />
+            <input type="text"value={name} onChange={(e)=>setName(e.target.value)} className="form-control"placeholder="Name" required/>
             <br/>
-            <input type="text"value={phone} onChange={(e)=>setPhone(e.target.value)}className="form-control"placeholder="Phone number" />
+            <input type="text"value={phone} onChange={(e)=>setPhone(e.target.value)}className="form-control"placeholder="Phone number" required/>
             <br/>
-            <input type="text"value={stafftype} onChange={(e)=>setStafftype(e.target.value)}className="form-control"placeholder="Staff Type" />
+            <input type="text"value={stafftype} onChange={(e)=>setStafftype(e.target.value)}className="form-control"placeholder="Staff Type- nurse/attendant/metron/pharmacist/accountant/receptionist/labtechnician/radiologist/eservice"required/>
             <br/>
-            <input type="text"value={email}onChange={(e)=>setEmail(e.target.value)} className="form-control"placeholder="Email" />
+            <input type="text"value={email}onChange={(e)=>setEmail(e.target.value)} className="form-control"placeholder="Email" required/>
             <br/>
-            <input type="password"value={password}onChange={(e)=>setPassword(e.target.value)} className="form-control"placeholder="Password" />
+            <input type="password"value={password}onChange={(e)=>setPassword(e.target.value)} className="form-control"placeholder="Password"required />
             <br/>
             <button onClick={signUp} className="btn btn-primary">Sign Up</button>
         </div>

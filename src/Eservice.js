@@ -58,6 +58,7 @@ function Eservice() {
             </Table>
             <a href="/update" className="btn btn-primary">Update</a>
             <button onClick={deleted} className="btn btn-primary" >Delete</button>
+            <a href="/#" className="btn btn-primary">Finance section</a>
            
         </div>
     )
